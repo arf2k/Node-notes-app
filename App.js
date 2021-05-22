@@ -16,7 +16,7 @@ yargs.command({
      command: "add",
      describe: "add new note",
      handler: function(){ 
-          console.log("adding a new note")
+          console.log("Adding a new note")
      }
 })
 
@@ -25,9 +25,26 @@ yargs.command({
      command: "remove",
      describe: "remove a note",
      handler: function(){ 
-          console.log("removing note")
+          console.log("Removing note")
      }
 })
+
+yargs.command({
+     command: "list",
+     describe: "list of notes",
+     handler: function(){ 
+          console.log("Here's a list of note")
+     }
+})
+
+yargs.command({
+     command: "read",
+     describe: "read a note",
+     handler: function(){ 
+          console.log("Read this note")
+     }
+})
+
 
 // console.log(process.argv)
 // provides array containing node info and path to the file and any additional info added with script
