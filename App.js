@@ -1,7 +1,6 @@
 const validator = require("validator")
-const chalk = require("chalk")
 const yargs = require("yargs")
-const getNotes = require("./Notes.js")
+const getNotes = require("./notes.js")
 
 const command = process.argv[2]
 
@@ -11,8 +10,26 @@ const command = process.argv[2]
 //      console.log("Removing note")
 // }
 
+
+// create add command 
+yargs.command({
+     command: "add",
+     describe: "add new note",
+     handler: function(){ 
+          console.log("adding a new note")
+     }
+})
+
+
+yargs.command({
+     command: "remove",
+     describe: "remove a note",
+     handler: function(){ 
+          console.log("removing note")
+     }
+})
+
 // console.log(process.argv)
 // provides array containing node info and path to the file and any additional info added with script
 
 console.log(yargs.argv)
-
