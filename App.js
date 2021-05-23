@@ -1,8 +1,8 @@
-const validator = require("validator")
-const yargs = require("yargs")
-const getNotes = require("./notes.js")
+const validator = require("validator");
+const yargs = require("yargs");
+const getNotes = require("./notes.js");
 
-const command = process.argv[2]
+const command = process.argv[2];
 
 // if(command === "add") {
 //      console.log("Adding note")
@@ -10,43 +10,57 @@ const command = process.argv[2]
 //      console.log("Removing note")
 // }
 
-
-// create add command 
+// create add command
 yargs.command({
-     command: "add",
-     describe: "add new note",
-     handler: function(){ 
-          console.log("Adding a new note")
-     }
-})
-
-
-yargs.command({
-     command: "remove",
-     describe: "remove a note",
-     handler: function(){ 
-          console.log("Removing note")
-     }
-})
-
-yargs.command({
-     command: "list",
-     describe: "list of notes",
-     handler: function(){ 
-          console.log("Here's a list of note")
-     }
-})
+  command: "add",
+  describe: "add new note",
+  builder: {
+    title: {
+      describe: "Note title",
+      demandOption: true,
+      type: "string",
+    },
+    body: {
+      describe: "Note body",
+      demandOption: true,
+      type: "string",
+    },
+  },
+  handler: function (argv) {
+    console.log("Adding a new note");
+    console.log("Title: " + argv.title);
+    console.log("Body: " + argv.body);
+  },
+});
 
 yargs.command({
-     command: "read",
-     describe: "read a note",
-     handler: function(){ 
-          console.log("Read this note")
-     }
-})
+  command: "remove",
+  describe: "remove a note",
+  handler: function () {
+    console.log("Removing note");
+  },
+});
 
+yargs.command({
+  command: "list",
+  describe: "list of notes",
+  handler: function () {
+    console.log("Here's a list of note");
+  },
+});
+
+yargs.command({
+  command: "read",
+  describe: "read a note",
+  handler: function () {
+    console.log("Read this note");
+  },
+});
 
 // console.log(process.argv)
 // provides array containing node info and path to the file and any additional info added with script
 
-console.log(yargs.argv)
+// console.log(yargs.argv)
+// must have this to parse args or put yargs.parse
+
+yargs.parse();
