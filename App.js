@@ -1,5 +1,6 @@
 const validator = require("validator");
 const yargs = require("yargs");
+const notes = require("./notes.js");
 const getNotes = require("./notes.js");
 
 const command = process.argv[2];
@@ -28,11 +29,13 @@ yargs.command({
   },
   handler: function (argv) {
     console.log("Adding a new note");
-    console.log("Title: " + argv.title);
-    console.log("Body: " + argv.body);
+    // console.log("Title: " + argv.title);
+    // console.log("Body: " + argv.body);
+    notes.addNote(argv.title, argv.body)
   },
 });
 
+debugger 
 yargs.command({
   command: "remove",
   describe: "remove a note",
