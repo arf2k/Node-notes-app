@@ -1,1 +1,5 @@
-[{"title":"sup","body":"yo"},{"title":"Xan","body":"da man"},{"title":"hey dog","body":"hey buddy"}]
+[
+  { "title": "sup", "body": "yo" },
+  { "title": "Xan", "body": "da man" },
+  { "title": "hey dog", "body": "hey buddy" }
+]
